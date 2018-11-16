@@ -12,21 +12,13 @@ namespace ConsoleApp7
         {
             Console.WriteLine("введите строку");
             string str = Convert.ToString(Console.ReadLine());
-            Console.WriteLine("введите нужное слово");
-            string need = Convert.ToString(Console.ReadLine());
-
             string[] razb = str.Split(' ', ',');
+            var razbnew = razb.Union(razb);
             int count = 0;
-            for (int i = 0; i < razb.Length ; i++)
-            {
-              //  Console.WriteLine(razb[i]);
-                if (razb[i] == need)
-                {
-                    count++;
-                } 
-            }
-            Console.WriteLine("колличество нужных слов - "+count);
-           
+            foreach (string word in razbnew)
+                count++;
+            Console.WriteLine("колличество уникальных слов - " + (count-1));
+
             Console.ReadLine();
         }
     }
