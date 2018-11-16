@@ -11,7 +11,7 @@ namespace ConsoleApp7
         static void Main(string[] args)
         {
             Console.WriteLine("введите строку");
-            string str = Convert.ToString(Console.ReadLine());
+            string str = Console.ReadLine();
             string[] razb = str.Split(' ', ',');
             var razbnew = razb.Union(razb);
             int count = 0;
