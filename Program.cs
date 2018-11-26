@@ -15,8 +15,7 @@ namespace ConsoleApp7
             string[] words = str.Split(' ', ',');
             if (words.Length > 1)
             {
-                List<String> WordsList = new List<String>();
-                for (int i = 0; i < words.Length; i++) { WordsList.Add(words[i]); };
+                List<String> WordsList = words.ToList();
                 for (int i = 0; i < WordsList.Count; i++)
                 {
                     for (int j = i + 1; j < WordsList.Count-1; j++)
@@ -35,7 +34,7 @@ namespace ConsoleApp7
                 };
 
 
-                foreach (String s in WordsList) { Console.WriteLine(s); };             
+                //foreach (String s in WordsList) { Console.WriteLine(s); };             
             }
             else { Console.WriteLine("колличество уникальных слов - 1"); }
             Console.ReadLine();
