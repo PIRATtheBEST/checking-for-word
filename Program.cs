@@ -12,17 +12,35 @@ namespace ConsoleApp7
         {
             Console.WriteLine("введите строку");
             string str = Console.ReadLine();
-            string[] razb = str.Split(' ', ',');
-            bool checking = false;
-            int count = 0;
-            var razb1 = razb.Distinct();
-            foreach(string s in razb1)
+            string[] words = str.Split(' ', ',');
+            if (words.Length > 1)
             {
-                count++;
-            }
-            Console.WriteLine("колличество уникальных слов - " + count);
+                List<String> WordsList = new List<String>();
+                for (int i = 0; i < words.Length; i++) { WordsList.Add(words[i]); };
+                for (int i = 0; i < WordsList.Count; i++)
+                {
+                    for (int j = i + 1; j < WordsList.Count-1; j++)
+                    {
+                        while (WordsList[i].Equals(WordsList[j]))
+                        {
+                            WordsList.RemoveAt(j);
+                        };
 
+                    };
+                };
+                
+                if (WordsList[1].Equals(WordsList.Last()))
+                {
+                    Console.WriteLine("колличество уникальных слов - " + (WordsList.Count - 1));
+                };
+
+
+                foreach (String s in WordsList) { Console.WriteLine(s); };
+                Console.WriteLine("колличество уникальных слов - " + WordsList.Count);
+            }
+            else { Console.WriteLine("колличество уникальных слов - 1"); }
             Console.ReadLine();
+            
         }
     }
 }
