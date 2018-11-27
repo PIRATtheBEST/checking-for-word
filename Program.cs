@@ -31,10 +31,14 @@ namespace ConsoleApp7
                 if (WordsList[0].Equals(WordsList.Last()))
                 {
                     Console.WriteLine("колличество уникальных слов - " + (WordsList.Count - 1));
-                };
+                }
+                else
+                {
+                    Console.WriteLine("колличество уникальных слов - " + (WordsList.Count));
+                }
 
-
-                //foreach (String s in WordsList) { Console.WriteLine(s); };             
+                
+                foreach (String s in WordsList) { Console.WriteLine(s); };
             }
             else { Console.WriteLine("колличество уникальных слов - 1"); }
             Console.ReadLine();
