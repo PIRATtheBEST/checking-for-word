@@ -12,37 +12,18 @@ namespace ConsoleApp7
         {
             Console.WriteLine("введите строку");
             string str = Console.ReadLine();
-            string[] words = str.Split(' ', ',');
-            if (words.Length > 1)
+            string[] Words = str.Split(' ', ',');
+            List<String> WordsList = Words.ToList();
+            List<string> WordsLonely = new List<string>();
+            while (WordsList.Count > 0)
             {
-                List<String> WordsList = words.ToList();
-                for (int i = 0; i < WordsList.Count; i++)
-                {
-                    for (int j = i + 1; j < WordsList.Count-1; j++)
-                    {
-                        while (WordsList[i].Equals(WordsList[j]))
-                        {
-                            WordsList.RemoveAt(j);
-                        };
-
-                    };
-                };
-                
-                if (WordsList[0].Equals(WordsList.Last()))
-                {
-                    Console.WriteLine("колличество уникальных слов - " + (WordsList.Count - 1));
-                }
-                else
-                {
-                    Console.WriteLine("колличество уникальных слов - " + (WordsList.Count));
-                }
-
-                
-                foreach (String s in WordsList) { Console.WriteLine(s); };
-            }
-            else { Console.WriteLine("колличество уникальных слов - 1"); }
-            Console.ReadLine();
-            
+                WordsLonely.Add(WordsList[0]);
+                WordsList.RemoveAll(words => (words == WordsList[0]));
+            };
+            if (WordsLonely[0] == WordsLonely[WordsLonely.Count - 1]) { WordsLonely.RemoveAt(WordsLonely.Count - 1); };
+            Console.WriteLine("колличество уникальных слов - " + (WordsLonely.Count));
+            foreach (String s in WordsLonely) { Console.WriteLine(s); };
+            Console.ReadLine();            
         }
     }
 }
